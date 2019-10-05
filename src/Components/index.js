@@ -58,7 +58,13 @@ constructor(props){
   this.handleClick=this.handleClick.bind(this)
   this.widthControl=this.widthControl.bind(this)
 
+  window.addEventListener("resize", this.widthControl.bind(this));
 
+}
+componentDidMount() {
+  this.widthControl();
+  console.log("S")
+  window.addEventListener("resize", this.widthControl.bind(this));;
 }
 handleClick(){
   this.props.logOut()
@@ -67,11 +73,16 @@ handleClick(){
 
 
 
-onCollapse = collapsed => {
+onCollapse (collapsed) {
   this.setState({ collapsed });
 };
 widthControl(){
-  if(window.innerWidth<800) this.onCollapse()
+  if(window.innerWidth<1000) {this.onCollapse(true)}
+  else{
+      this.setState({
+        collapsed:false
+      })
+  }
 }
   render(){
  
@@ -141,13 +152,16 @@ widthControl(){
             <div style={{ padding: 24, height: "100%" }}>
               <Row
                 style={{
+                  backgroundImage:`url(${desk})`,
+                  backgroundSize:"300px",
+                  backgroundPositionX:"100%",
+                  backgroundRepeat:"no-repeat",
                   width: "92%",
                   minHeight: "300px",
                   backgroundColor: "white",
                   marginBottom: "10px"
                 }}
               >
-                <Col span={12} className="Exams">
                   <h1
                     style={{
                       textAlign: "left",
@@ -180,42 +194,39 @@ widthControl(){
                       "Nothing happens untill something moves" ~ Albert Enistine{" "}
                     </i>
                   </h3>
-                  <span style={{ paddingLeft: "50px" }}>
-                    {" "}
+                  <span>
+                    <Row  style={{ paddingLeft: "50px" }}>
                     <Button
                       type="primary"
                       shape="round"
                       size={"large"}
-                      style={{ width: "250px", height: "50px" }}
+                      style={{ width: "90%",maxWidth:"180px", height: "50px" }}
                     >
                       View Exams Tips
                     </Button>
+                    </Row>
                   </span>
-                </Col>
-
-                <Col span={12} style={{ textAlign: "right" }}>
-                  <img width={"100%"} src={desk} alt={"error"} />
-                </Col>
               </Row>
 
-              <Row style={{ width: "92%", marginTop: "30px" }} className="GridCol">
+              <div style={{  marginTop: "30px" }} className="GridCol">
                 <Col span={18} className="GridCol">
                   <Announcements />
                 </Col>
-                <Col span={6}  className="GridCol">
+                <Col span={6}  className="GridCol"
+                >
                   <TimeTable />
                 </Col>
               
-              </Row>
+              </div>
 
-              <Row  className="GridCol1">
+              <div  className="GridCol1">
                 <Row width="100%">
                   <Announcements />
                 </Row>
-                <Row   width="100%">
+                <Row   width="100%" style={{marginTop:"10px"}}>
                   <TimeTable />
                 </Row>
-              </Row>
+              </div>
             </div>
           </Content>
         </Layout>
