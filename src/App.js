@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import "antd/dist/antd.css";
+import HomePage from "./Components/index";
+import SignIn from "./Components/signIn";
+import {  Router, BrowserRouter,Switch,Route, Link ,Redirect,withRouter} from "react-router-dom";
+import { connect } from 'react-redux';
+import * as history from 'history';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    let PrivateRoute = ({ component: Component, ...rest }) => (
+      <Route {...rest} render={() => (
+        this.props.Auth.isLoggedIn ? <Component /> : <Redirect to='/login' />
+      )}
+      />);
+    return (
+      <BrowserRouter >
+      <div>
+          <Route path="/login" component={SignIn} />
+          <PrivateRoute exact path='/' component={HomePage} />
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    Auth: state.Auth
+  };
+}
+
+export default connect(mapStateToProps, null)(App);;
