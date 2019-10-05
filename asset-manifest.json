@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/coligoApp/static/css/main.74e9026a.chunk.css",
+    "main.js": "/coligoApp/static/js/main.5bf53d80.chunk.js",
+    "main.js.map": "/coligoApp/static/js/main.5bf53d80.chunk.js.map",
+    "runtime~main.js": "/coligoApp/static/js/runtime~main.32d054b8.js",
+    "runtime~main.js.map": "/coligoApp/static/js/runtime~main.32d054b8.js.map",
+    "static/css/2.653462cc.chunk.css": "/coligoApp/static/css/2.653462cc.chunk.css",
+    "static/js/2.759f0043.chunk.js": "/coligoApp/static/js/2.759f0043.chunk.js",
+    "static/js/2.759f0043.chunk.js.map": "/coligoApp/static/js/2.759f0043.chunk.js.map",
+    "index.html": "/coligoApp/index.html",
+    "precache-manifest.40b6844318614720acf4d46317a556f5.js": "/coligoApp/precache-manifest.40b6844318614720acf4d46317a556f5.js",
+    "service-worker.js": "/coligoApp/service-worker.js",
+    "static/css/2.653462cc.chunk.css.map": "/coligoApp/static/css/2.653462cc.chunk.css.map",
+    "static/css/main.74e9026a.chunk.css.map": "/coligoApp/static/css/main.74e9026a.chunk.css.map",
+    "static/media/desk.svg": "/coligoApp/static/media/desk.cf1b3e8a.svg"
+  }
+}
